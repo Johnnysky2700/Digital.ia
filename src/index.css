@@ -2,13 +2,14 @@
 
 @import "tailwindcss";
 
-/* Removed unsupported @custom-variant at-rule */
+@custom-variant dark (&:where(.dark, .dark *));
 
-*{
+* {
   font-family: "Manrope", sans-serif;
   font-weight: 500;
 }
 
-:root {
-  --color-primary: #5044E5;
+@theme {
+  --color-primary: #38BDF8;
+  /* --color-secondary: #5044E5;     */
 }
