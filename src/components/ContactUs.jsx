@@ -13,20 +13,20 @@ const ContactUs = () => {
         formData.append("access_key", "a0ae7dcb-e0f2-4f3b-9b74-10ff2823d5d0");
 
         try {
-             const response = await fetch("https://api.web3forms.com/submit", {
-            method: "POST",
-            body: formData
-        });
+            const response = await fetch("https://api.web3forms.com/submit", {
+                method: "POST",
+                body: formData
+            });
 
-        const data = await response.json();
+            const data = await response.json();
 
-        if (data.success) {
-            toast.success("Thank you for your message!");
-            event.target.reset();
-        } else {
-            toast.error(data.message)
-        }
-            
+            if (data.success) {
+                toast.success("Thank you for your message!");
+                event.target.reset();
+            } else {
+                toast.error(data.message)
+            }
+
         } catch (error) {
             toast.error(error.message)
         }
@@ -53,8 +53,13 @@ const ContactUs = () => {
                 </div>
                 <div className='sm:col-span-2'>
                     <p className='mb-2 text-sm font-medium'>Messages</p>
-                    <textarea name="message" row={8} placeholder='Enter your message here...' className='w-full p-8 text-sm outline-none border
-                 border-gray-300 dark:border-gray-600 rounded-lg'required />
+                    <textarea
+                        name="message"
+                        rows={8}
+                        placeholder='Enter your message here...'
+                        className='w-full p-3 text-sm outline-none border border-gray-300 dark:border-gray-600 rounded-lg min-h-[160px] sm:min-h-[220px] resize-vertical'
+                        required
+                    />
                 </div>
 
                 <button type='submit' className='w-max flex gap-2 bg-primary text-white text-sm px-10
